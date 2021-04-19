@@ -1,12 +1,26 @@
+'''
+
+Python Script for seeting voltages to MCP4725 DAC unit
+
+Use : Helps to check if DAC unit is working properly
+
+'''
 # Simple demo of setting the DAC value up and down through its entire range
 # of values.
-# Author: Tony DiCola
+# Author: Tony DiCola, Codenio
+
 import time
 
-import VPi.board as board
-import VPi.busio as busio
-import VPi.adafruit_mcp4725 as adafruit_mcp4725
-
+try:
+    import RPi.GPIO as GPIO
+    import board
+    import busio
+    import adafruit_mcp4725
+except:
+    import VPi.GPIO as GPIO
+    import VPi.board as board
+    import VPi.busio as busio
+    import VPi.adafruit_mcp4725 as adafruit_mcp4725
 
 # Initialize I2C bus.
 i2c = busio.I2C(board.SCL, board.SDA)
