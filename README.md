@@ -146,6 +146,21 @@ except:
 	```
 
 
+## Develope
+
+- make the suitable changes and from the root directory of this repository, install the VPi python package using the install.sh script
+    ```bash
+    $ sudo ./scripts/install.sh
+    ```
+
+## Contribute
+
+- You've discovered a bug or something else you want to change - excellent! - feel free to raise a issue.
+- You've worked out a way to fix it – even better! - submit your PR
+- You want to tell us about it – best of all!
+
+Start contributing !
+
 ## CREDITS
 
 - [adafruit](https://github.com/adafruit)
