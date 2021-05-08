@@ -43,6 +43,7 @@
 #
 # # imports
 import time
+import numpy as np
 # from micropython import const
 
 _DEFAULT_ADDRESS = 0x70
@@ -60,54 +61,8 @@ class TCA9548A_Channel:
         self.tca = tca
         self.channel_switch = bytearray([1 << channel])
 
-    # def try_lock(self):
-    #     """Pass thru for try_lock."""
-    #     # while not self.tca.i2c.try_lock():
-    #     #     pass
-    #     # self.tca.i2c.writeto(self.tca.address, self.channel_switch)
-    #     time.sleep(1)
-    #     return True
-    #
-    # def unlock(self):
-    #     """Pass thru for unlock."""
-    #     self.tca.i2c.writeto(self.tca.address, b"\x00")
-    #     return self.tca.i2c.unlock()
-    #
-    # def readfrom_into(self, address, buffer, **kwargs):
-    #     """Pass thru for readfrom_into."""
-    #     if address == self.tca.address:
-    #         raise ValueError("Device address must be different than TCA9548A address.")
-    #     return self.tca.i2c.readfrom_into(address, buffer, **kwargs)
-    #
-    # def writeto(self, address, buffer, **kwargs):
-    #     """Pass thru for writeto."""
-    #     if address == self.tca.address:
-    #         raise ValueError("Device address must be different than TCA9548A address.")
-    #     return self.tca.i2c.writeto(address, buffer, **kwargs)
-    #
-    # def writeto_then_readfrom(self, address, buffer_out, buffer_in, **kwargs):
-    #     """Pass thru for writeto_then_readfrom."""
-    #     # In linux, at least, this is a special kernel function call
-    #     if address == self.tca.address:
-    #         raise ValueError("Device address must be different than TCA9548A address.")
-    #
-    #     if hasattr(self.tca.i2c, "writeto_then_readfrom"):
-    #         self.tca.i2c.writeto_then_readfrom(address, buffer_out, buffer_in, **kwargs)
-    #     else:
-    #         self.tca.i2c.writeto(
-    #             address,
-    #             buffer_out,
-    #             start=kwargs.get("out_start", 0),
-    #             end=kwargs.get("out_end", None),
-    #             stop=False,
-    #         )
-    #         self.tca.i2c.readfrom_into(
-    #             address,
-    #             buffer_in,
-    #             start=kwargs.get("in_start", 0),
-    #             end=kwargs.get("in_end", None),
-    #         )
-
+    def scan(self):
+        return list(np.random.randint(255, size=(np.random.choice([1,2,3])))) + [_DEFAULT_ADDRESS]
 
 class TCA9548A:
     """Class which provides interface to TCA9548A I2C multiplexer."""
