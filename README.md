@@ -25,7 +25,7 @@ $ sudo pip3 install VPi
 
 - board
 
-	This Libary simulates pin of the respberry pi based on the board type
+	This Libary simulates pin of the raspberry pi based on the board type
 
 - busio
 
