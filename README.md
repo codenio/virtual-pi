@@ -31,6 +31,10 @@ $ sudo pip3 install VPi
 
 	This Libary simulates I2C communication
 
+- spidev
+
+	This Libary simulates SPI communication by mocking py-spidev library
+
 - GPIO
 
 	This library simulates the following functions which are used in the RPi.GPIO library.

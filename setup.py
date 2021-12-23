@@ -18,10 +18,12 @@ try:
       from RPi.GPIO import GPIO
       import board
       import busio
+      import spidev
 except:
       from VPi.GPIO import GPIO
       import VPi.board as board
       import VPi.busio as busio
+      import VPi.spidev as spidev
 ```
 
 ## Works with
